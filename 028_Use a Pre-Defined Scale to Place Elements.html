@@ -1,54 +1,68 @@
-<body>
-	<script>
-		const dataset = [
-			[34, 78],
-			[109, 280],
-			[310, 120],
-			[79, 411],
-			[420, 220],
-			[233, 145],
-			[333, 96],
-			[222, 333],
-			[78, 320],
-			[21, 123],
-		];
+<!DOCTYPE html>
+<html lang="zh-Hant-TW">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Use a Pre-Defined Scale to Place Elements</title>
+	</head>
+	<body>
+		<script
+			src="https://cdnjs.cloudflare.com/ajax/libs/d3/7.8.5/d3.min.js"
+			integrity="sha512-M7nHCiNUOwFt6Us3r8alutZLm9qMt4s9951uo8jqO4UwJ1hziseL6O3ndFyigx6+LREfZqnhHxYjKRJ8ZQ69DQ=="
+			crossorigin="anonymous"
+			referrerpolicy="no-referrer"
+		></script>
+		<script>
+			const dataset = [
+				[34, 78],
+				[109, 280],
+				[310, 120],
+				[79, 411],
+				[420, 220],
+				[233, 145],
+				[333, 96],
+				[222, 333],
+				[78, 320],
+				[21, 123],
+			];
 
-		const w = 500;
-		const h = 500;
-		const padding = 60;
+			const w = 500;
+			const h = 500;
+			const padding = 60;
 
-		const xScale = d3
-			.scaleLinear()
-			.domain([0, d3.max(dataset, (d) => d[0])])
-			.range([padding, w - padding]);
+			const xScale = d3
+				.scaleLinear()
+				.domain([0, d3.max(dataset, (d) => d[0])])
+				.range([padding, w - padding]);
 
-		const yScale = d3
-			.scaleLinear()
-			.domain([0, d3.max(dataset, (d) => d[1])])
-			.range([h - padding, padding]);
+			const yScale = d3
+				.scaleLinear()
+				.domain([0, d3.max(dataset, (d) => d[1])])
+				.range([h - padding, padding]);
 
-		const svg = d3
-			.select('body')
-			.append('svg')
-			.attr('width', w)
-			.attr('height', h);
+			const svg = d3
+				.select('body')
+				.append('svg')
+				.attr('width', w)
+				.attr('height', h);
 
-		svg
-			.selectAll('circle')
-			.data(dataset)
-			.enter()
-			.append('circle')
-			.attr('cx', (i) => xScale(i[0]))
-			.attr('cy', (i) => yScale(i[1]))
-			.attr('r', 5);
+			svg
+				.selectAll('circle')
+				.data(dataset)
+				.enter()
+				.append('circle')
+				.attr('cx', (i) => xScale(i[0]))
+				.attr('cy', (i) => yScale(i[1]))
+				.attr('r', 5);
 
-		svg
-			.selectAll('text')
-			.data(dataset)
-			.enter()
-			.append('text')
-			.text((i) => `${i[0]}, ${i[1]}`)
-			.attr('x', (i) => xScale(i[0] + 10))
-			.attr('y', (i) => yScale(i[1]));
-	</script>
-</body>
+			svg
+				.selectAll('text')
+				.data(dataset)
+				.enter()
+				.append('text')
+				.text((i) => `${i[0]}, ${i[1]}`)
+				.attr('x', (i) => xScale(i[0] + 10))
+				.attr('y', (i) => yScale(i[1]));
+		</script>
+	</body>
+</html>

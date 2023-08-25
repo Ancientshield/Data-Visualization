@@ -1,38 +1,51 @@
-<body>
-	<script>
-		const dataset = [12, 31, 22, 17, 25, 18, 29, 14, 9];
+<!DOCTYPE html>
+<html lang="zh-Hant-TW">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Add Labels to D3 Elements.html</title>
+	</head>
+	<body>
+		<script
+			src="https://cdnjs.cloudflare.com/ajax/libs/d3/7.8.5/d3.min.js"
+			integrity="sha512-M7nHCiNUOwFt6Us3r8alutZLm9qMt4s9951uo8jqO4UwJ1hziseL6O3ndFyigx6+LREfZqnhHxYjKRJ8ZQ69DQ=="
+			crossorigin="anonymous"
+			referrerpolicy="no-referrer"
+		></script>
+		<script>
+			const dataset = [12, 31, 22, 17, 25, 18, 29, 14, 9];
 
-		const w = 500;
-		const h = 100;
+			const w = 500;
+			const h = 100;
 
-		const svg = d3
-			.select('body')
-			.append('svg')
-			.attr('width', w)
-			.attr('height', h);
+			const svg = d3
+				.select('body')
+				.append('svg')
+				.attr('width', w)
+				.attr('height', h);
 
-		svg
-			.selectAll('rect')
-			.data(dataset)
-			.enter()
-			.append('rect')
-			.attr('x', (d, i) => i * 30)
-			.attr('y', (d, i) => h - 3 * d)
-			.attr('width', 25)
-			.attr('height', (d, i) => 3 * d)
-			.attr('fill', 'navy');
+			svg
+				.selectAll('rect')
+				.data(dataset)
+				.enter()
+				.append('rect')
+				.attr('x', (d, i) => i * 30)
+				.attr('y', (d, i) => h - 3 * d)
+				.attr('width', 25)
+				.attr('height', (d, i) => 3 * d)
+				.attr('fill', 'navy');
 
-		svg
-			.selectAll('text')
-			.data(dataset)
-			.enter()
-			// Add your code below this line
-			.append('text')
-			.attr('x', (d, i) => i * 30)
-			.attr('y', (d, i) => h - 3 * d - 3)
-			.text((d, i) => d);
+			svg
+				.selectAll('text')
+				.data(dataset)
+				.enter()
+				// Add your code below this line
+				.append('text')
+				.attr('x', (d, i) => i * 30)
+				.attr('y', (d, i) => h - 3 * d - 3)
+				.text((d, i) => d);
 
-		// Add your code above this line
-	</script>
-	<body></body>
-</body>
+			// Add your code above this line
+		</script>
+	</body>
+</html>
