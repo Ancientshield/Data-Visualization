@@ -1,26 +1,40 @@
-<body>
-	<script>
-		const dataset = [12, 31, 22, 17, 25, 18, 29, 14, 9];
+<!DOCTYPE html>
+<html lang="zh-Hant-TW">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Create a Bar for Each Data Point in the Set</title>
+	</head>
+	<body>
+		<script
+			src="https://cdnjs.cloudflare.com/ajax/libs/d3/7.8.5/d3.min.js"
+			integrity="sha512-M7nHCiNUOwFt6Us3r8alutZLm9qMt4s9951uo8jqO4UwJ1hziseL6O3ndFyigx6+LREfZqnhHxYjKRJ8ZQ69DQ=="
+			crossorigin="anonymous"
+			referrerpolicy="no-referrer"
+		></script>
+		<script>
+			const dataset = [12, 31, 22, 17, 25, 18, 29, 14, 9];
 
-		const w = 500;
-		const h = 100;
+			const w = 500;
+			const h = 100;
 
-		const svg = d3
-			.select('body')
-			.append('svg')
-			.attr('width', w)
-			.attr('height', h);
+			const svg = d3
+				.select('body')
+				.append('svg')
+				.attr('width', w)
+				.attr('height', h);
 
-		svg
-			.selectAll('rect')
-			// Add your code below this line
-			.data(dataset)
-			.enter()
-			.append('rect')
-			// Add your code above this line
-			.attr('x', 0)
-			.attr('y', 0)
-			.attr('width', 25)
-			.attr('height', 100);
-	</script>
-</body>
+			svg
+				.selectAll('rect')
+				// Add your code below this line
+				.data(dataset)
+				.enter()
+				.append('rect')
+				// Add your code above this line
+				.attr('x', 0)
+				.attr('y', 0)
+				.attr('width', 25)
+				.attr('height', 100);
+		</script>
+	</body>
+</html>

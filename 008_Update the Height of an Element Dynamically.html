@@ -1,26 +1,40 @@
-<style>
-	.bar {
-		width: 25px;
-		height: 100px;
-		display: inline-block;
-		background-color: blue;
-	}
-</style>
-<body>
-	<script>
-		const dataset = [12, 31, 22, 17, 25, 18, 29, 14, 9];
+<!DOCTYPE html>
+<html lang="zh-Hant-TW">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<style>
+			.bar {
+				width: 25px;
+				height: 100px;
+				display: inline-block;
+				background-color: blue;
+			}
+		</style>
+		<title>Document</title>
+	</head>
+	<body>
+		<script
+			src="https://cdnjs.cloudflare.com/ajax/libs/d3/7.8.5/d3.min.js"
+			integrity="sha512-M7nHCiNUOwFt6Us3r8alutZLm9qMt4s9951uo8jqO4UwJ1hziseL6O3ndFyigx6+LREfZqnhHxYjKRJ8ZQ69DQ=="
+			crossorigin="anonymous"
+			referrerpolicy="no-referrer"
+		></script>
+		<script>
+			const dataset = [12, 31, 22, 17, 25, 18, 29, 14, 9];
 
-		d3.select('body')
-			.selectAll('div')
-			.data(dataset)
-			.enter()
-			.append('div')
-			.attr('class', 'bar')
-			// Add your code below this line
-			.style('height', (i) => {
-				return i;
-			});
+			d3.select('body')
+				.selectAll('div')
+				.data(dataset)
+				.enter()
+				.append('div')
+				.attr('class', 'bar')
+				// Add your code below this line
+				.style('height', (i) => {
+					return i;
+				});
 
-		// Add your code above this line
-	</script>
-</body>
+			// Add your code above this line
+		</script>
+	</body>
+</html>
